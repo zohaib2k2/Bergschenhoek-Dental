@@ -2,15 +2,19 @@ import React from 'react'
 import { Phone, MapPin, Mail, Clock, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import peridontologyImage from '../../public/services_images/peridontology.png';
+import endodonticsImage from '../../public/services_images/endodontics.png';
+import dentist5Image from '../../public/clinic_images/dentist_5.jpg';
+import dentist4Image from '../../public/clinic_images/dentist_4.jpg';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
-    "/services_images/peridontology.png",
-    "/services_images/endodontics.png",
-    "/clinic_images/dentist_5.jpg",
-    "/clinic_images/dentist_4.jpg"
+    peridontologyImage,
+    endodonticsImage,
+    dentist5Image,
+    dentist4Image
   ];
 
   useEffect(() => {

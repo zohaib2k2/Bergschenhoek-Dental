@@ -1,6 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import cosmeticImage from '../../public/services_images/cosmetic_dentist.jpg';
+import hygieneImage from '../../public/services_images/dental_hygiene.jpg';
+import peridontologyImage from '../../public/services_images/peridontology.png';
+import endodonticsImage from '../../public/services_images/endodontics.png';
+import impantImage from '../../public/services_images/impant.png';
+import whitteningImage from '../../public/services_images/teeth_whitening.png';
+import dentist4Image from '../../public/clinic_images/dentist_4.jpg';
 
 const Treatment = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,33 +42,33 @@ const Treatment = () => {
     {
       id: 6,
       title: "COSMETIC DENTISTRY",
-      image: "/services_images/cosmetic_dentist.jpg"
+      image: cosmeticImage
     },
     {
       id: 7,
       title: "DENTAL HYGIENE",
-      image: "/services_images/dental_hygiene.jpg"
+      image: hygieneImage
 
     },
     {
         id: 8,
         title: "PERODIC DENTISTRY",
-        image: "/clinic_images/dentist_4.jpg"
+        image: dentist4Image
     },
     {
         id: 9,
         title: "DENTAL  PROSTHETICS",
-        image: "/services_images/impant.png"
+        image: impantImage
     },
     {
         id: 10,
         title: "ENDODONTICS",
-        image: "/services_images/endodontics.png"
+        image: endodonticsImage
     },
     {
         id: 11,
         title: "TEETH WHITENING",
-        image: "/services_images/teeth_whitening.png"
+        image: whitteningImage
     }
   ];
 

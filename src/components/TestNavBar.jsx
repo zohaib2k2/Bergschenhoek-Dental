@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Mail, Clock, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
+import navbarlogo from '../../public/navbar_logo2.png';
 
 export default function TestNavBar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -96,7 +97,7 @@ export default function TestNavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
               <div className="w-32 h-12 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
-                <img src="/navbar_logo2.png" alt="HealthCare Logo" className="h-16 w-54" />
+                <img src={navbarlogo} alt="HealthCare Logo" className="h-16 w-54" />
               </div>
             </div>
             
