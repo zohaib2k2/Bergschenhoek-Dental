@@ -59,7 +59,7 @@ const TestimonialSlider = () => {
     text: language === 'nl' ? testimonial.text_nl : testimonial.text_en
   }));
 
-  const cardsPerView = 2;
+  const cardsPerView = 1;
   const maxIndex = testimonials.length - cardsPerView;
 
   useEffect(() => {
@@ -82,7 +82,7 @@ const TestimonialSlider = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-8">
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl" id="testimonials">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Left Content */}
           <div className="lg:col-span-2">

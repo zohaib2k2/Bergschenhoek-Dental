@@ -1,7 +1,11 @@
-import React from 'react';
+
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
+import { useLanguage } from "../context/LanguageContext"
+
+
 const Footer = () => {
+  const { language } = useLanguage();
   return (
     <footer className="bg-slate-900 text-white">
       {/* Main Footer Content */}
@@ -11,7 +15,11 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6">Dentist van Alphen</h3>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Your trusted dental practice in Noordwijkerhout, providing comprehensive oral care for the whole family.
+              {language === 'nl' ?
+              'Bij Dentist van Alphen streven we ernaar om hoogwaardige tandheelkundige zorg te bieden in een comfortabele en vriendelijke omgeving. Ons toegewijde team van professionals staat klaar om aan al uw tandheelkundige behoeften te voldoen.'
+              :
+              'At Dentist van Alphen, we strive to provide high-quality dental care in a comfortable and friendly environment. Our dedicated team of professionals is ready to meet all your dental needs.'
+              }
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all">
@@ -31,33 +39,53 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-6">
+              { language === 'nl' ? 'Snelle Links' : 'Quick Links' }
+            </h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Treatments</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Our Team</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Home' : 'Home' }
+                </a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Over ons' : 'About Us' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Behandelingen' : 'Treatments' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Ons team' : 'Our Team' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Reviews' : 'Reviews' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Contact' : 'Contact' }</a></li>
             </ul>
           </div>
 
           {/* Treatments */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Our Treatments</h4>
+            <h4 className="text-lg font-bold mb-6">
+              { language === 'nl' ? 'Behandelingen' : 'Treatments' }
+            </h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Dental Implants</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Teeth Whitening</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Orthodontics</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">General Dentistry</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cosmetic Dentistry</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Injectables</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors"> 
+                { language === 'nl' ? 'Tandimplantaten' : 'Dental Implants' }
+              </a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Tandenblekken' : 'Teeth Whitening' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Orthodontie' : 'Orthodontics' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Algemene tandheelkunde' : 'General Dentistry' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Cosmetische tandheelkunde' : 'Cosmetic Dentistry' }</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">
+                { language === 'nl' ? 'Injectables' : 'Injectables' }</a></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Contact Us</h4>
+            <h4 className="text-lg font-bold mb-6">
+              { language === 'nl' ? 'Contact Informatie' : 'Contact Information' }
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0 mt-1" />
@@ -97,7 +125,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2024 Dentist van Alphen. All rights reserved.
+              © 2024 Dentist van Alphen. {language === 'nl' ? 'Alle rechten voorbehouden.' : 'All rights reserved.'}
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>

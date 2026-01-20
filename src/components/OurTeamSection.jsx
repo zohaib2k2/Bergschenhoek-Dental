@@ -20,18 +20,18 @@ const OurTeamSection = () => {
     nl: {
       heading: "ONS TEAM",
       title: "UW BETROUWBARE TANDARTS IN NOORDWIJKERHOUT",
-      description: "Het Dentist van Alphen team bestaat uit meerdere mondzorgprofessionals. Onze professionals hebben ervaring in diverse disciplines in de tandheelkunde zoals kindertandheelkunde, esthetische tandheelkunde en implantologie."
+      description: "Onze praktijk brengt een team van bekwame tandheelkundige professionals samen met uitgebreide expertise op verschillende specialismen, waaronder kindertandheelkunde, esthetische tandheelkunde en implantologie."
     },
     en: {
       heading: "OUR TEAM",
       title: "YOUR TRUSTED DENTIST IN NOORDWIJKERHOUT",
-      description: "The Dentist van Alphen team consists of several oral care professionals. Our professionals have experience in various disciplines in dentistry such as pediatric dentistry, aesthetic dentistry and implantology."
+      description: "Our practice brings together a team of skilled dental professionals with extensive expertise across multiple specialties, including pediatric dentistry, aesthetic dentistry, and implantology."
     }
   };
 
   const { language } = useLanguage();
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-8">
+    <div className="min-h-screen bg-white flex items-center justify-center p-8" id="ourteam">
       <div className="w-full max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Team Photos */}
@@ -69,7 +69,7 @@ const OurTeamSection = () => {
               {lang_aboutText[language].description}
             </p>
             <button className="px-10 py-4 border-2 border-slate-800 text-slate-800 rounded-full font-bold hover:bg-slate-800 hover:text-white transition-all text-sm tracking-wide">
-              VIEW OUR TEAM
+              {language === 'nl' ? 'MEER OVER ONS TEAM' : 'MORE ABOUT OUR TEAM'}
             </button>
           </div>
         </div>

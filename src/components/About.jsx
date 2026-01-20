@@ -22,21 +22,23 @@ const About = () => {
 
   return (
     <>
-      <div className="bg-[#fffef1] flex items-center justify-center">
+      <div className="bg-[#fffef1] flex items-center justify-center" id="about">
         <div className="max-w-7xl w-full grid md:grid-cols-2 gap-40 items-center md-20 pb-7">
           {/* Left Side - Image */}
-          <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-800">
+          <div className="relative m-4 md:m-0">
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-zinc-700 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
                 alt="Dental office waiting room"
-                className="w-[2000px] h-[600px] object-cover"
+                className="w-[2000px] h-[460px] md:w-[2000px] md:h-[600px] object-cover border-3 border-zinc-100"
               />
             </div>
 
             {/* Contact Card */}
             <div className="absolute bottom-0 left-0 bg-white rounded-2xl shadow-xl p-6 m-4 max-w-xs">
-              <h3 className="text-slate-400 text-sm font-medium mb-2">CONTACT US?</h3>
+              <h3 className="text-slate-400 text-sm font-medium mb-2">
+                {language === 'nl' ? 'Neem contact met ons op' : 'Contact Us'}
+              </h3>
               <p className="text-slate-800 text-lg">
                 Call us: <span className="font-semibold">(0252) - 37 29 96</span>
               </p>

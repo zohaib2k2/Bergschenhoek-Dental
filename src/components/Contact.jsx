@@ -1,20 +1,37 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Appoinetment from './Appoinetment';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
+  const { language } = useLanguage();
+
+  const lang_text = {
+    nl: {
+      heading: "NEEM CONTACT OP",
+      title: "NEEM CONTACT OP",
+      description: "Maak een afspraak of neem contact met ons op voor vragen",
+      contact_info: "Contact Informatie"
+    },
+    en: {
+      heading: "GET IN TOUCH",
+      title: "GET IN TOUCH",
+      description: "Schedule an appointment or reach out to us with any questions",
+      contact_info: "Contact Information"
+    }
+  };
   return (
     <>
     <section id="contact" className="py-20 bg-[#fffdf2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-gray-900 mb-4 text-xl text-bold">Get In Touch</h2>
+          <h2 className="text-gray-900 mb-4 text-xl text-bold">{lang_text[language].title}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Schedule an appointment or reach out to us with any questions
+            {lang_text[language].description}
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-gray-900 mb-6">Contact Information</h3>
+            <h3 className="text-gray-900 mb-6">{}</h3>
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">

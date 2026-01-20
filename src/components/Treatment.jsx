@@ -3,15 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import cosmeticImage from '../../public/services_images/cosmetic_dentist.jpg';
 import hygieneImage from '../../public/services_images/dental_hygiene.jpg';
-import peridontologyImage from '../../public/services_images/peridontology.png';
 import endodonticsImage from '../../public/services_images/endodontics.png';
 import impantImage from '../../public/services_images/impant.png';
 import whitteningImage from '../../public/services_images/teeth_whitening.png';
 import dentist4Image from '../../public/clinic_images/dentist_4.jpg';
+import { useLanguage } from '../context/LanguageContext';
 
 const Treatment = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const { language } = useLanguage();
 
   const treatments = [
     {
@@ -95,17 +96,27 @@ const Treatment = () => {
     setCurrentIndex(prev => (prev <= 0 ? maxIndex : prev - 1));
   };
 
+  const lang_treatmentText = {
+    nl: {
+      title: "WAT WE AANBIEDEN",
+      description: "Onze uitgebreide tandheelkundige diensten zijn gericht op het waarborgen van de mondgezondheid van uw gezin, terwijl we mooie, zelfverzekerde glimlachen creëren en behouden."
+    },
+    en: {
+      title: "WHAT WE OFFER",
+      description: "Our comprehensive dental services are dedicated to safeguarding your family's oral health while creating and maintaining beautiful, confident smiles."
+    }
+  };
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-3 md:p-8">
+    <div className="min-h-screen bg-white flex items-center justify-center p-3 md:p-8" id="treatments">
       <div className="w-full max-w-7xl">
         {/* Header Section */}
         <div className="mb-12">
           <p className="text-sm text-gray-400 uppercase tracking-widest mb-2">TREATMENTS</p>
           <h1 className="text-5xl font-light text-gray-800 mb-6">
-            WHAT WE <span className="font-bold text-gray-900">OFFER</span>
+            {lang_treatmentText[language].title.split(' ').splice(0, 2).join(' ')} <span className="font-bold">{lang_treatmentText[language].title.split(' ').slice(2).join(' ')}</span>
           </h1>
           <p className="text-gray-600 max-w-2xl text-lg">
-            We offer comprehensive dental care, aimed at maintaining your oral health and a radiant smile for the whole family.
+            {lang_treatmentText[language].description}
           </p>
         </div>
 
@@ -158,7 +169,7 @@ const Treatment = () => {
         {/* All Treatments Button */}
         <div className="flex justify-center mt-16">
           <button className="px-10 py-4 border-2 border-slate-800 text-slate-800 rounded-full font-semibold hover:bg-slate-800 hover:text-white transition-all text-sm tracking-wide">
-            ALL TREATMENTS
+            {language === 'nl' ? 'ALLE BEHANDELINGEN' : 'ALL TREATMENTS'}
           </button>
         </div>
       </div>

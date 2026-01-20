@@ -28,6 +28,13 @@ const Appoinetment = () => {
     message: ''
   });
 
+  const getTomorrowDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -76,18 +83,37 @@ const Appoinetment = () => {
       // Hide success message after 5 seconds
       setTimeout(() => setSuccess(false), 5000);
 
-    } catch (err) {
-      setError(err.message || 'Failed to schedule appointment. Please try again.');
+    // eslint-disable-next-line no-unused-vars
+    } catch (_err) {
+      setError('Redirecting to whatsapp.');
     } finally {
       setLoading(false);
     }
+    
+
+    const whatsappUrl = `https://wa.me/+31620144888?text=${construct_Whatsappmessage()}`;
+    window.open(whatsappUrl, '_blank');
+
   };
+
+    const construct_Whatsappmessage = () => {
+      let message = `Hello, I would like to schedule an appointment.\n\n`;
+      message += `Full Name: ${formData.fullName}\n`;
+      message += `Email: ${formData.email}\n`;
+      message += `Phone: ${formData.phone}\n`;
+      message += `Preferred Date: ${formData.preferredDate}\n`;
+      if (formData.message) {
+        message += `Message: ${formData.message}\n`;
+      }
+      return encodeURIComponent(message);
+    }
+
     return (
      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8" id="appointment-form">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
               <Calendar className="w-8 h-8 text-white" />
             </div>
@@ -182,8 +208,7 @@ const Appoinetment = () => {
                 name="preferredDate"
                 value={formData.preferredDate}
                 onChange={handleChange}
-                required
-                min={new Date().toISOString().split('T')[0]}
+                min={getTomorrowDate()}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>

@@ -33,14 +33,14 @@ const Hero = () => {
     nl: {
       welcome: "DENTIST BERGSCHENHOEK",
       title: "TANDHEELKUNDE VAN OPTIMALE KWALITEIT",
-      description1: "Bij ons bent u in goede handen: ons enthousiaste en gekwalificeerde team werkt met de nieuwste apparatuur en is op de hoogte van de laatste ontwikkelingen. We hechten ook waarde aan een persoonlijke benadering.",
-      description2: "We streven ernaar dat u een vaste behandelaar heeft en een luisterend oor voor al uw wensen en vragen."
+      description1: "Ons gekwalificeerde team van specialisten zorgt voor uitzonderlijke zorg door middel van state-of-the-art apparatuur en continue professionele ontwikkeling. We combineren klinische uitmuntendheid met een persoonlijke benadering voor elke patiënt.",
+      description2: "We zetten ons in voor continuïteit van zorg door u een toegewijde behandelaar toe te wijzen die aandachtig naar uw zorgen luistert en inspeelt op uw individuele behoeften."
     },
     en: {
       welcome: "DENTIST BERGSCHENHOEK",
       title: "DENTISTRY OF OPTIMAL QUALITY",
-      description1: "With us you are in good hands: our enthusiastic and qualified team works with the latest equipment and is aware of the latest developments. We also value a personal approach.",
-      description2: "We strive to ensure that you have a permanent practitioner and have a listening ear for all your wishes and questions."
+      description1: "Our qualified team of specialists ensures exceptional care through state-of-the-art equipment and continuous professional development. We combine clinical excellence with a personalized approach to every patient.",
+description2: "We are committed to continuity of care by assigning you a dedicated practitioner who will attentively address your concerns and respond to your individual needs."
     }
   };
 
@@ -67,7 +67,7 @@ const Hero = () => {
                 {lang_heroText[language].welcome}
               </p>
               
-              <h1 className="text-5xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
                 {lang_heroText[language].title}
               </h1>
               
@@ -100,7 +100,7 @@ const Hero = () => {
                   {slides.map((slide, index) => (
                     <div
                       key={index}
-                      className={`absolute inset-0 transition-opacity duration-1000 ${
+                      className={`absolute inset-0 transition-opacity duration-400 ${
                         index === currentSlide ? 'opacity-100' : 'opacity-0'
                       }`}
                     >

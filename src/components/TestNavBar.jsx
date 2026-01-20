@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Mail, Clock, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-import navbarlogo from '../../public/navbar_logo2.png';
+import navbarlogo from '../../public/reactangle_tranparent_logo_tulip.svg';
+import {scrollToSection} from '../utils/navscroll.js'
 
 export default function TestNavBar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -35,29 +36,39 @@ export default function TestNavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
   
-  const navItems = [
-    'Corporate',
-    'Our Branches',
-    'Our Treatments',
-    'Our Doctors',
-    'Blog',
-    'Appointments'
+  // const navItems = [
+  //   'Corporate',
+  //   'Our Branches',
+  //   'Our Treatments',
+  //   'Our Doctors',
+  //   'Blog',
+  //   'Appointments'
+  // ];
+
+  const navlinks = [
+    'company',
+    'testimonials',
+    'treatments',
+    'ourteam',
+    'about',
+    'appointment-form'
   ];
+
   const lang_navItems = {
     nl: [
       'Bedrijf',
-      'Onze Vestigingen',
+      'getuigenissen',
       'Onze Behandelingen',
       'Onze Artsen',
-      'Blog',
+      'About',
       'Afspraken'
     ],
     en: [
       'Corporate',
-      'Our Branches',
+      'Testimonials',
       'Our Treatments',
-      'Our Doctors',
-      'Blog',
+      'Our Team',
+      'About',
       'Appointments'
     ]
   };
@@ -96,8 +107,8 @@ export default function TestNavBar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFFEF6]">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <div className="w-32 h-12 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
-                <img src={navbarlogo} alt="HealthCare Logo" className="h-16 w-54" />
+              <div className="w-full h-10 bg-[#FFFEF6] rounded flex items-center justify-center text-white font-bold text-sm">
+                <img src={navbarlogo} alt="HealthCare Logo" className="h-16 w-60"  style={{ background: 'inherit' }} />
               </div>
             </div>
             
@@ -105,6 +116,7 @@ export default function TestNavBar() {
             <div className="hidden md:flex items-center space-x-1">
               {lang_navItems[language].map((item, index) => (
                 <button
+                  onClick={()=> scrollToSection(navlinks[index]) }
                   key={index}
                   className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
                 >
@@ -176,11 +188,12 @@ export default function TestNavBar() {
           }`}
         >
           <div className="px-4 pt-2 pb-4 space-y-1 border-t border-gray-200">
-            {navItems.map((item, index) => (
+            {lang_navItems[language].map((item, index) => (
               <button
                 key={index}
+                onClick={()=> {scrollToSection(navlinks[index]),setIsOpen(false)} }
                 className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 rounded-md font-medium"
-                onClick={() => setIsOpen(false)}
+                // onClick={() => setIsOpen(false)}
               >
                 {item}
               </button>
